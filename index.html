@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-One</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #e5fcf2;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #013812, #3b0316);
+            color: #fff;
+            padding-top: 0px;
+            min-height: 70px;
+            border-bottom: #04927f 3px solid;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        .social-link {
+            background: #fff;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 0 50px rgba(0, 255, 0, 0.1);
+            transition: transform 0.5s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+        .social-link h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .social-link p {
+            color: #666;
+        }
+        .qr-code {
+            margin-top: 10px;
+            scale: 0.8;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        .button i {
+            margin-left: 10px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        .button-facebook {
+            background-color: #3b5998;
+        }
+        .button-whatsapp {
+            background-color: #25d366;
+        }
+        .button:hover {
+            background-color: #555; /* Change to a darker shade on hover */
+        }
+        .buttons-groups {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        .buttons-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 10px;
+            background: #fff;
+            box-shadow: 0 0 50px rgba(0, 255, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.5s;
+        }
+        .group-text {
+            color: #333;
+            flex: 1;
+            text-align: left;
+            margin: 0;
+        }
+        .buttons-container {
+            display: flex;
+            gap: 10px;
+        }
+        .group-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #04927f;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            transition: transform 0.5s;
+        }
+        .group-button i {
+            margin-right: 8px;
+        }
+        .group-button:hover {
+            background-color: #555;
+            transform: scale(1.1);
+        }
+        .separator {
+            border: none;
+            height: 2px;
+            background: #04927f; /* Or any other color that matches your theme */
+            margin: 40px 0; /* Adjust margin to control spacing */
+            width: 80%; /* Adjust width to fit within the container */
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>A-One</h1>
+            <h2>Mr. Ashraf Kassem</h2>
+            <h3>English teacher for secondary stage</h3>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- div class="buttons-groups">
+            <div class="buttons-group">
+                <p class="group-text" >For booking - للحجز</p>
+                <div class="buttons-container">
+                    <a href="#" class="group-button button-1"><i class="fas fa-1"></i> secondary</a>
+                    <a href="#" class="group-button button-2"><i class="fas fa-2"></i> secondary</a>
+                    <a href="#" class="group-button button-3"><i class="fas fa-3"></i> secondary</a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="separator" -->
+
+        <div class="social-links">
+            <!-- Facebook -->
+            <div class="social-link">
+                <div id="qrcode-facebook" class="qr-code"></div>
+                <h3>Facebook</h3>
+                <p><a href="https://www.facebook.com/ashraf.kassem.33" target="_blank" class="button button-facebook"><i class="fab fa-facebook-f"></i>Visit profie</a></p>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="social-link">
+                <div id="qrcode-whatsapp" class="qr-code"></div>
+                <h3>WhatsApp</h3>
+                <p><a href="https://wa.me/qr/TMH3BKKYFXE7M1" target="_blank" class="button button-whatsapp"><i class="fab fa-whatsapp"></i>Contact me</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Generate QR codes
+        new QRCode(document.getElementById("qrcode-facebook"), "https://www.facebook.com/ashraf.kassem.33");
+        new QRCode(document.getElementById("qrcode-whatsapp"), "https://wa.me/qr/TMH3BKKYFXE7M1");
+    </script>
+</body>
+</html>
